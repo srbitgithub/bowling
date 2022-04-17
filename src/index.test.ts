@@ -1,6 +1,6 @@
 import { test } from "./index"
 
-describe("The Greeting", () => {
+describe("Test", () => {
   it("returns 'That code works fine'", () => {
     const expected = "That code works fine";
 
