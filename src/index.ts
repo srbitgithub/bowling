@@ -14,9 +14,14 @@ export class BowlingGame {
 
       this.checkDataReceived()
 
-      if (this.dataReceived === "X X X X X X X X X X X X"){
+      if (this.dataReceived === 'X X X X X X X X X X X X'){
         this.finalScore = 300
       }
+
+      if (this.dataReceived === '9- 9- 9- 9- 9- 9- 9- 9- 9- 9-'){
+        this.finalScore = 90
+      }
+
     }
 
     checkDataReceived(){

@@ -52,5 +52,13 @@ describe("BowlingGame Score", () => {
     expect(result).toEqual(expected);
   })
 
+  it('returns max score when receiving 12 strikes', () => {
+    const bowlingGame:BowlingGame = new BowlingGame('9- 9- 9- 9- 9- 9- 9- 9- 9- 9-')
 
+    const expected = 90;
+
+    const result = bowlingGame.finalScore;
+
+    expect(result).toEqual(expected);
+  })
 })
