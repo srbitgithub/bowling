@@ -22,4 +22,15 @@ describe("BowlingGame Score", () => {
     expect(result).toEqual(expected);
   })
 
+  it('returns true if receive an /', () => {
+    const bowlingGame:BowlingGame = new BowlingGame('/')
+
+    const expected = true;
+
+    const result = bowlingGame.isSpare;
+
+    expect(result).toEqual(expected);
+  })
+
+
 })
