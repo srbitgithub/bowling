@@ -1,10 +1,20 @@
 export class BowlingGame {
 
-    dataReceived:string = '' 
-    isStrike:boolean = false;
-    isSpare:boolean = false;
-    isMiss:boolean = false;
-    finalScore:number = 0;
+    STRIKE:string = 'X'
+    SPARE:string = '/'
+    MISS:string = '-'
+    SCORE_TYPE:any = {
+      'STRIKE': 'STRIKE',
+      'SPARE': 'SPARE',
+      'MISS': 'MISS',
+      'SCORE': 'SCORE'
+    }
+
+    dataReceived:string = ''
+    rollType:string = ''
+    finalScore:number = 0
+    data:any = []
+    currentScore:any = []
 
     constructor(_dataReceived?:string ){
 
@@ -12,34 +22,35 @@ export class BowlingGame {
         this.dataReceived = _dataReceived
       }
 
-      this.checkDataReceived()
-
-      if (this.dataReceived === 'X X X X X X X X X X X X'){
-        this.finalScore = 300
-      }
-
-      if (this.dataReceived === '9- 9- 9- 9- 9- 9- 9- 9- 9- 9-'){
-        this.finalScore = 90
-      }
-
+      this.checkReceivedData()
     }
 
-    checkDataReceived(){
-
-      if (this.dataReceived === 'X') {
-        this.isStrike = true
+    checkReceivedData(){
+      this.convertDataReceivedInArray()
+      for (const item of this.data) {
+        this.rollType = this.checkItemOfReceivedData(item)
       }
+    }
 
-      if (this.dataReceived === '/') {
-        this.isSpare = true
+    convertDataReceivedInArray(){
+      const dataReceivedArray: string[] = this.dataReceived.split(" ")
+      for (const item of dataReceivedArray) {
+        this.data.push(item.split(''))
       }
-
-      if (this.dataReceived === '-') {
-        this.isMiss = true
-      }
-
     }
     
-    
-    result:string = "BowlingGame works fine"
+    checkItemOfReceivedData(item:string):string{
+
+      let valueToReturn:string = this.SCORE_TYPE.SCORE
+
+      const isStrike:boolean = (item == this.STRIKE)
+      const isSpare:boolean = (item == this.SPARE)
+      const isMiss:boolean = (item == this.MISS)
+
+      if (isStrike) valueToReturn = this.SCORE_TYPE.STRIKE
+      if (isSpare) valueToReturn = this.SCORE_TYPE.SPARE
+      if (isMiss) valueToReturn = this.SCORE_TYPE.MISS
+
+      return valueToReturn
+    }
   };

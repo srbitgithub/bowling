@@ -2,47 +2,47 @@ import { BowlingGame } from "./index"
 
 describe("BowlingGame Score", () => {
 
-  it('returns "BowlingGame works fine" to test BowlingGame Class', () => {
+  it('Sets the finalScore variable to 0 when the class is called', () => {
     const bowlingGame:BowlingGame = new BowlingGame()
 
-    const expected = "BowlingGame works fine";
+    const expected = 0;
 
-    const result = bowlingGame.result;
+    const result = bowlingGame.finalScore;
 
     expect(result).toEqual(expected);
   })
 
-  it('returns true if receive an X', () => {
+  it('Sets the rollType variable to STRIKE if the constructor received a strike "X"', () => {
     const bowlingGame:BowlingGame = new BowlingGame('X')
 
-    const expected = true;
+    const expected = 'STRIKE';
 
-    const result = bowlingGame.isStrike;
+    const result = bowlingGame.rollType;
 
     expect(result).toEqual(expected);
   })
 
-  it('returns true if receive a /', () => {
+  it('Sets the rollType variable to SPARE if the constructor received a spare "/"', () => {
     const bowlingGame:BowlingGame = new BowlingGame('/')
 
-    const expected = true;
+    const expected = 'SPARE';
 
-    const result = bowlingGame.isSpare;
+    const result = bowlingGame.rollType;
 
     expect(result).toEqual(expected);
   })
 
-  it('returns true if receive a -', () => {
+  it('Sets the rollType variable to MISS if the constructor received a miss "-"', () => {
     const bowlingGame:BowlingGame = new BowlingGame('-')
 
-    const expected = true;
+    const expected = 'MISS';
 
-    const result = bowlingGame.isMiss;
+    const result = bowlingGame.rollType;
 
     expect(result).toEqual(expected);
   })
 
-  it('returns max score when receiving 12 strikes', () => {
+  xit('returns max score when receiving 12 strikes', () => {
     const bowlingGame:BowlingGame = new BowlingGame('X X X X X X X X X X X X')
 
     const expected = 300;
@@ -52,7 +52,7 @@ describe("BowlingGame Score", () => {
     expect(result).toEqual(expected);
   })
 
-  it('returns max score when receiving 12 strikes', () => {
+  xit('returns max score when receiving 12 strikes', () => {
     const bowlingGame:BowlingGame = new BowlingGame('9- 9- 9- 9- 9- 9- 9- 9- 9- 9-')
 
     const expected = 90;
