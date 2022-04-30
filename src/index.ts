@@ -7,9 +7,14 @@ export class BowlingGame {
 
     constructor(_dataReceived?:string ){
 
-      if (_dataReceived != null) {
+      if (_dataReceived) {
         this.dataReceived = _dataReceived
       }
+
+      this.checkDataReceived()
+    }
+
+    checkDataReceived(){
 
       if (this.dataReceived === 'X') {
         this.isStrike = true
@@ -22,8 +27,8 @@ export class BowlingGame {
       if (this.dataReceived === '-') {
         this.isMiss = true
       }
-    }
 
+    }
     
     
     result:string = "BowlingGame works fine"
