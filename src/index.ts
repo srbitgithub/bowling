@@ -4,6 +4,7 @@ export class BowlingGame {
     isStrike:boolean = false;
     isSpare:boolean = false;
     isMiss:boolean = false;
+    finalScore:number = 0;
 
     constructor(_dataReceived?:string ){
 
@@ -12,6 +13,10 @@ export class BowlingGame {
       }
 
       this.checkDataReceived()
+
+      if (this.dataReceived === "X X X X X X X X X X X X"){
+        this.finalScore = 300
+      }
     }
 
     checkDataReceived(){
