@@ -1,10 +1,13 @@
-import { test } from "./index"
+import { BowlingGame } from "./index"
 
-describe("Test", () => {
-  it("returns 'That code works fine'", () => {
-    const expected = "That code works fine";
+describe("BowlingGame Score", () => {
 
-    const result = test();
+  const bowlingGame:BowlingGame = new BowlingGame()
+  
+  it("returns 'BowlingGame works fine' to test BowlingGame Class", () => {
+    const expected = "BowlingGame works fine";
+
+    const result = bowlingGame.result;
 
     expect(result).toEqual(expected);
   })
