@@ -3,6 +3,7 @@ export class BowlingGame {
     dataReceived:string = '' 
     isStrike:boolean = false;
     isSpare:boolean = false;
+    isMiss:boolean = false;
 
     constructor(_dataReceived?:string ){
 
@@ -18,6 +19,9 @@ export class BowlingGame {
         this.isSpare = true
       }
 
+      if (this.dataReceived === '-') {
+        this.isMiss = true
+      }
     }
 
     
