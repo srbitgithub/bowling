@@ -26,9 +26,10 @@ export class BowlingGame {
   }
 
   updateFinalScore(){
-
+    const rollValuesLength = this.rollValues.length
     const isACompleteGame = (this.rollValues.length >= this.FRAMES)
-    const are12Strikes = (this.rollValues.length == 12)
+    const are12Strikes = (this.rollValues.length == this.FRAMES + 2)
+    const strikeInLastFrame = (this.rollValues.length == this.FRAMES + 1)
     const isAGameWithoutStrikes = (this.rollValues.length == this.FRAMES)
 
     if (isACompleteGame){
@@ -36,6 +37,12 @@ export class BowlingGame {
         for (let index:number = 0; index < this.FRAMES; index++){
           this.currentRoll = this.rollValues[index] + this.rollValues[index + 1] + this.rollValues[index + 2]
           this.finalScore += this.currentRoll 
+        }
+      }
+
+      if (strikeInLastFrame) {
+        for (let index:number = 0; index < rollValuesLength; index++){
+          this.finalScore += this.rollValues[index] 
         }
       }
 

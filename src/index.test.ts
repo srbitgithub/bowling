@@ -82,4 +82,14 @@ describe("BowlingGame Score", () => {
     expect(result).toEqual(expected);
   })
 
+  it('calculates a game when roll #10 is a strike', () => {
+    const bowlingGame:BowlingGame = new BowlingGame('11 11 11 11 11 11 11 11 11 X 11')
+
+    const expected = 30;
+
+    const result = bowlingGame.finalScore;
+
+    expect(result).toEqual(expected);
+  })
+
 })
