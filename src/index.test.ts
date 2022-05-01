@@ -61,4 +61,26 @@ describe("BowlingGame Score", () => {
 
     expect(result).toEqual(expected);
   })
+
+  it('calculates 10 pairs of number + number', () => {
+    const bowlingGame:BowlingGame = new BowlingGame('11 11 11 11 11 11 11 11 11 11')
+
+    const expected = 20;
+
+    const result = bowlingGame.finalScore;
+
+    expect(result).toEqual(expected);
+  })
+
+  it('calculates a game with 10 spares', () => {
+    const bowlingGame:BowlingGame = new BowlingGame('/ / / / / / / / / /')
+
+    const expected = 20;
+
+    const result = bowlingGame.finalScore;
+
+    expect(result).toEqual(expected);
+  })
+
+
 })
