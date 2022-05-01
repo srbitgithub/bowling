@@ -12,32 +12,32 @@ describe("BowlingGame Score", () => {
     expect(result).toEqual(expected);
   })
 
-  it('Sets the rollType variable to STRIKE if the constructor received a strike "X"', () => {
+  it('Sets the finalScore variable to 10 if the constructor received a strike "X"', () => {
     const bowlingGame:BowlingGame = new BowlingGame('X')
 
     const expected = 10;
 
-    const result = bowlingGame.currentRoll;
+    const result = bowlingGame.finalScore;
 
     expect(result).toEqual(expected);
   })
 
-  it('Sets the rollType variable to SPARE if the constructor received a spare "/"', () => {
+  it('Sets the finalScore varable to 10 if the constructor received a spare "/"', () => {
     const bowlingGame:BowlingGame = new BowlingGame('/')
 
     const expected = 10;
 
-    const result = bowlingGame.currentRoll;
+    const result = bowlingGame.finalScore;
 
     expect(result).toEqual(expected);
   })
 
-  it('Sets the rollType variable to MISS if the constructor received a miss "-"', () => {
+  it('Sets the finalScore variable to zero if the constructor received a miss "-"', () => {
     const bowlingGame:BowlingGame = new BowlingGame('-')
 
     const expected = 0;
 
-    const result = bowlingGame.currentRoll;
+    const result = bowlingGame.finalScore;
 
     expect(result).toEqual(expected);
   })
