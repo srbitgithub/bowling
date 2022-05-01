@@ -40,9 +40,17 @@ export class BowlingGame {
   updateFinalScore(){
     if (this.rollValues.length >= this.ROLLS){
       this.finalScore = 0
-      for (let index:number = 0; index < this.ROLLS; index++){
-        this.currentRoll = this.rollValues[index] + this.rollValues[index + 1] + this.rollValues[index + 2]
-        this.finalScore += this.currentRoll 
+      if (this.rollValues.length == 12){
+        for (let index:number = 0; index < this.ROLLS; index++){
+          this.currentRoll = this.rollValues[index] + this.rollValues[index + 1] + this.rollValues[index + 2]
+          this.finalScore += this.currentRoll 
+        }
+      }
+      if (this.rollValues.length == this.ROLLS){
+        for (let index:number = 0; index < this.ROLLS; index++){
+          this.currentRoll = this.rollValues[index][0] + this.rollValues[index][1]
+          this.finalScore += this.currentRoll 
+        }
       }
     } else {
       this.finalScore = this.rollValues[0]
@@ -60,9 +68,12 @@ export class BowlingGame {
     for (const item of array) {
       if (item.length == 1){
         this.rollValues.push(this.checkItem(item))
-        this.updateFinalScore();
-      } 
+      } else {
+        const newItem: any[] = []
+        this.rollValues.push(this.convert2charsInScore(item))
+      }
     }
+    this.updateFinalScore();
   }
     
   checkItem(item:string):number{
@@ -84,5 +95,13 @@ export class BowlingGame {
       value = parseInt(item)
     }
     return value
+  }
+
+  convert2charsInScore(twoRolls:string):number[]{
+    const arrayTemp:number[] = []
+    const firstRoll:number  = this.checkItem(twoRolls.substring(0,1))
+    const secondRoll:number = this.checkItem(twoRolls.substring(1))
+    arrayTemp.push(firstRoll,secondRoll)
+    return arrayTemp
   }
 }

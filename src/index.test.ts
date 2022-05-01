@@ -52,7 +52,7 @@ describe("BowlingGame Score", () => {
     expect(result).toEqual(expected);
   })
 
-  xit('calculates 10 pairs of number + miss', () => {
+  it('calculates 10 pairs of number + miss', () => {
     const bowlingGame:BowlingGame = new BowlingGame('9- 9- 9- 9- 9- 9- 9- 9- 9- 9-')
 
     const expected = 90;
