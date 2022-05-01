@@ -75,12 +75,11 @@ describe("BowlingGame Score", () => {
   it('calculates a game with 10 spares', () => {
     const bowlingGame:BowlingGame = new BowlingGame('/ / / / / / / / / /')
 
-    const expected = 20;
+    const expected = 100;
 
     const result = bowlingGame.finalScore;
 
     expect(result).toEqual(expected);
   })
-
 
 })

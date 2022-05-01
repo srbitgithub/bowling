@@ -41,8 +41,7 @@ export class BowlingGame {
 
       if (isAGameWithoutStrikes){
         for (let index:number = 0; index < this.FRAMES; index++){
-          this.currentRoll = this.rollValues[index][0] + this.rollValues[index][1]
-          this.finalScore += this.currentRoll 
+          this.finalScore += this.rollValues[index] 
         }
       }
 
@@ -67,7 +66,6 @@ export class BowlingGame {
         this.rollValues.push(this.convert2charsInScore(item))
       }
     }
-    console.log('rollValues: ' + this.rollValues)
     this.updateFinalScore();
   }
     
@@ -94,13 +92,14 @@ export class BowlingGame {
     return value
   }
 
-  convert2charsInScore(twoRolls:string):number[]{
+  convert2charsInScore(twoRolls:string):number{
 
     const arrayTemp:number[] = []
     for (const item of twoRolls) {
       let currentScore:number  = (this.checkItem(item))
       arrayTemp.push(currentScore)
     }
-    return arrayTemp
+    const numberToReturn:number = arrayTemp.reduce((a, b) => a + b, 0)
+    return numberToReturn
   }
 }
